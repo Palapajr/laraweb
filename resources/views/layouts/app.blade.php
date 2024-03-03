@@ -6,6 +6,9 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
   <title>@yield('title')</title>
 
+  <link href="/front/img/icon.png" rel="icon">
+  <link href="/front/img/icon.png" rel="icon">
+
   <!-- General CSS Files -->
   <link rel="stylesheet" href="/assets/modules/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="/assets/modules/fontawesome/css/all.min.css">
@@ -54,7 +57,7 @@
                 <i class="fas fa-cog"></i> Settings
               </a>
               <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item has-icon text-danger">
+              <a href="/logout" class="dropdown-item has-icon text-danger">
                 <i class="fas fa-sign-out-alt"></i> Logout
               </a>
             </div>
@@ -72,9 +75,19 @@
 
           <ul class="sidebar-menu">
             <li class="menu-header">Dashboard</li>
-            <li class="dropdown ">
+            <li>
               <a href="" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
             </li>
+            <li>
+              <a href="/" target="_blank" class="nav-link"><i class="fas fa-eye"></i><span>Lihat Website</span></a>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-th"></i></i> <span>Data Master</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="/sliders">Data Sliders</a></li>
+                <li><a class="nav-link" href="">Transparent Sidebar</a></li>
+                <li><a class="nav-link" href="">Top Navigation</a></li>
+              </ul>
             <li class="dropdown ">
                 <a href="" class="nav-link"><i class="fas fa-fire"></i><span>Pages</span></a>
             </li>
