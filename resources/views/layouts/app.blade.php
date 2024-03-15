@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
@@ -18,16 +18,20 @@
   <!-- Template CSS -->
   <link rel="stylesheet" href="/assets/css/style.css">
   <link rel="stylesheet" href="/assets/css/components.css">
-<!-- Start GA -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <!-- Start GA -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
 
-  gtag('config', 'UA-94034622-3');
-</script>
-<!-- /END GA --></head>
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-94034622-3');
+  </script>
+  <!-- /END GA -->
+</head>
 
 <body>
   <div id="app">
@@ -38,13 +42,14 @@
           <ul class="navbar-nav mr-3">
             <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
           </ul>
-      
+
         </form>
         <ul class="navbar-nav navbar-right">
-          
+
           <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-            <img alt="image" src="http://localhost/template/assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
-            <div class="d-sm-none d-lg-inline-block">{{ Auth::user()->name; }}</div></a>
+              <img alt="image" src="http://localhost/template/assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
+              <div class="d-sm-none d-lg-inline-block">{{ Auth::user()->name; }}</div>
+            </a>
             <div class="dropdown-menu dropdown-menu-right">
               <div class="dropdown-title">Logged in 5 min ago</div>
               <a href="http://localhost/template/dist/features_profile" class="dropdown-item has-icon">
@@ -75,23 +80,23 @@
 
           <ul class="sidebar-menu">
             <li class="menu-header">Dashboard</li>
-            <li>
-              <a href="" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+            <li class="{{ Request::is('dashboard') ? 'active' : '' }}">
+              <a href="{{ url('dashboard') }}" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
             </li>
             <li>
               <a href="/" target="_blank" class="nav-link"><i class="fas fa-eye"></i><span>Lihat Website</span></a>
             </li>
-            <li class="dropdown">
+            <li class="dropdown {{ Request::is('sliders') ? 'active' : '' }}">
               <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-th"></i></i> <span>Data Master</span></a>
               <ul class="dropdown-menu">
-                <li><a class="nav-link" href="/sliders">Data Sliders</a></li>
+                <li class="{{ Request::is('sliders') ? 'active' : '' }}"><a class="nav-link" href="{{ url('sliders') }}">Data Sliders</a></li>
                 <li><a class="nav-link" href="">Transparent Sidebar</a></li>
                 <li><a class="nav-link" href="">Top Navigation</a></li>
               </ul>
             <li class="dropdown ">
-                <a href="" class="nav-link"><i class="fas fa-fire"></i><span>Pages</span></a>
+              <a href="" class="nav-link"><i class="fas fa-fire"></i><span>Pages</span></a>
             </li>
-            
+
           </ul>
 
           {{-- <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
@@ -112,7 +117,7 @@
 
 
           <div class="section-body">
-            
+
             @yield('content')
 
 
@@ -127,10 +132,11 @@
       </div>
       <footer class="main-footer">
         <div class="footer-left">
-          Copyright &copy; {{ date('Y') }} <div class="bullet"></div> Create By Mr. Q
+          Copyright &copy; {{ date('Y') }}
+          <div class="bullet"></div> Create By Mr. Q
         </div>
         <div class="footer-right">
-          
+
         </div>
       </footer>
     </div>
@@ -144,7 +150,7 @@
   <script src="/assets/modules/nicescroll/jquery.nicescroll.min.js"></script>
   <script src="/assets/modules/moment.min.js"></script>
   <script src="/assets/js/stisla.js"></script>
-  
+
   <!-- JS Libraies -->
 
   <!-- Page Specific JS File -->
@@ -166,4 +172,5 @@
     });
     </script> --}}
 </body>
+
 </html>

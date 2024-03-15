@@ -14,6 +14,6 @@ Route::post('/login', [AuthController::class, 'authenticated']);
 Route::get('/logout', [AuthController::class, 'logout']);
 
 //dashboard
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
+Route::get('dashboard', [DashboardController::class, 'index'])->middleware('auth');
 
 Route::resource('sliders', SliderController::class)->middleware('auth');

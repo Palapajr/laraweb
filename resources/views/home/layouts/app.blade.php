@@ -61,7 +61,7 @@
             <nav id="navbar" class="navbar">
                 <ul>
 
-                    <li class="dropdown"><a href="" class="active"><span>Home</span></a></li>
+                    <li class="dropdown"><a href="" class="{{ Request::is('/') ? 'active' : '' }}"><span>Home</span></a></li>
 
                     <li class="dropdown"><a href="#"><span>Profil</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                         <ul>
