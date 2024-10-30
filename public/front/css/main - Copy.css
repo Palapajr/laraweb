@@ -349,8 +349,8 @@
     .navbar .dropdown .active,
     .navbar .dropdown .active:focus,
     .navbar .dropdown:hover>a {
-      color: var(--color-primary);
-      background: var(--color-white);
+      color: var(--color-white);
+      background: var(--color-secondary);
     }
 
     .navbar .dropdown ul {
@@ -363,7 +363,7 @@
       z-index: 99;
       opacity: 0;
       visibility: hidden;
-      background: var(--color-white);
+      background: var(--color-secondary);
       transition: 0.3s;
     }
 
@@ -376,7 +376,7 @@
       font-size: 15px;
       text-transform: none;
       font-weight: 400;
-      color: rgba(var(--color-black-rgb), 0.5);
+      color: rgba(var(--color-white-rgb), 0.5);
     }
 
     .navbar .dropdown ul a i {
