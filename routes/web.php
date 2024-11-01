@@ -13,7 +13,15 @@ Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'authenticated']);
 Route::get('/logout', [AuthController::class, 'logout']);
 
-//dashboard
-Route::get('dashboard', [DashboardController::class, 'index'])->middleware('auth');
+Route::group(['middleware' => ['auth']], function () {
 
-Route::resource('sliders', SliderController::class)->middleware('auth');
+    //dashboard
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    // Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    // Route::resource('sliders', SliderController::class)->middleware('auth');
+    // Route::get('slider', [SliderController::class, 'slider'])->name('index');
+    Route::resource('/slider', SliderController::class);
+});
+

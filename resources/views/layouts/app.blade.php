@@ -13,7 +13,8 @@
   <link rel="stylesheet" href="/assets/modules/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="/assets/modules/fontawesome/css/all.min.css">
 
-  <!-- CSS Libraries -->
+    <!-- CSS Libraries -->
+    @yield('csslibrary')
 
   <!-- Template CSS -->
   <link rel="stylesheet" href="/assets/css/style.css">
@@ -81,15 +82,15 @@
           <ul class="sidebar-menu">
             <li class="menu-header">Dashboard</li>
             <li class="{{ Request::is('dashboard') ? 'active' : '' }}">
-              <a href="{{ url('dashboard') }}" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+              <a href="{{ url('/dashboard') }}" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
             </li>
             <li>
               <a href="/" target="_blank" class="nav-link"><i class="fas fa-eye"></i><span>Lihat Website</span></a>
             </li>
-            <li class="dropdown {{ Request::is('sliders') ? 'active' : '' }}">
+            <li class="dropdown {{ Request::is('slider') ? 'active' : '' }} || {{ Request::is('slider/create') ? 'active' : '' }} || {{ Request::is('slider/*/edit') ? 'active' : '' }}">
               <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-th"></i></i> <span>Data Master</span></a>
               <ul class="dropdown-menu">
-                <li class="{{ Request::is('sliders') ? 'active' : '' }}"><a class="nav-link" href="{{ url('sliders') }}">Data Sliders</a></li>
+                <li class="{{ Request::is('slider') ? 'active' : '' }} || {{ Request::is('slider/create') ? 'active' : '' }} || {{ Request::is('slider/*/edit') ? 'active' : '' }}"><a class="nav-link" href="{{ url('/slider') }}">Data Sliders</a></li>
                 <li><a class="nav-link" href="">Transparent Sidebar</a></li>
                 <li><a class="nav-link" href="">Top Navigation</a></li>
               </ul>
@@ -113,20 +114,11 @@
             <h1>@yield('title')</h1>
           </div>
 
+            <div class="section-body">
 
+                @yield('content')
 
-
-          <div class="section-body">
-
-            @yield('content')
-
-
-          </div>
-
-
-
-
-
+            </div>
 
         </section>
       </div>
@@ -152,25 +144,16 @@
   <script src="/assets/js/stisla.js"></script>
 
   <!-- JS Libraies -->
+  @yield('jslibrary')
+
 
   <!-- Page Specific JS File -->
+  @yield('datatable')
 
   <!-- Template JS File -->
   <script src="/assets/js/scripts.js"></script>
   <script src="/assets/js/custom.js"></script>
-  {{-- <script>
-    var tabelData = $('#table');
 
-    $(document).ready(function() {
-        tabelData.DataTable({ // -> tabel
-            "processing": true,
-            "columnDefs": [{
-                "target": [-1],
-                "orderable": false
-            }]
-        });
-    });
-    </script> --}}
 </body>
 
 </html>
